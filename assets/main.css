@@ -1,0 +1,591 @@
+/* cache clear test */ 
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color:#212121;
+    font-family: 'Roboto', sans-serif;
+    padding:0;
+    margin:0;
+}
+
+::selection {
+  background: #d8d8d8;
+}
+::-moz-selection {
+  background: #d8d8d8;
+}
+
+/* header styles */ 
+
+nav {
+    text-transform: uppercase;
+}
+
+nav.main {
+    margin:0;
+    z-index:2;
+    position: fixed;
+    left: 33px;
+    top:15px;
+}
+
+nav.main ul,
+nav.secondary ul {
+    padding:0;
+    margin:0;
+}
+
+nav.main ul li {
+    list-style: none;
+    float:left;
+    padding-left:25px;
+}
+
+nav.main ul li a,
+nav.secondary ul li a {
+    text-decoration: none;
+    color:#212121;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+nav.main ul li a:hover,
+nav.secondary ul li a:hover {
+    text-decoration: underline;
+    color:black;
+}
+
+nav.secondary {
+    margin:0;
+    z-index:2;
+    position: fixed;
+    right: 33px;
+    top:15px;
+}
+
+nav.secondary ul li {
+    list-style: none;
+    float:left;
+    padding-right:25px;
+}
+
+header {
+    width: 100%;
+    background:white;
+    min-height: 50px;
+    position: fixed;
+    z-index: 50;
+}
+
+header h1 {
+    color:#1b1b1b;
+    position: fixed;
+    text-align: center;
+    margin:0;
+    left:45%;
+    z-index: 1;
+}
+
+.header-small, .main-small {
+    display: none;
+}
+
+/* END header styles */
+
+
+/* main styles */
+
+main {
+    margin:0 auto;
+    max-width: 1200px;
+    padding:5px; 
+}
+
+#home, #work, #resume, #contact {
+    min-height: 100vh;
+}
+
+main h1 {
+    padding-top:10px;
+    margin-bottom: 2.5px;
+}
+
+.main-title {
+    font-size:calc(18.5px + 2.5vw);
+}
+
+#home h1 {
+    font-weight: 800;
+    top:8%;
+    margin-top:45vh;
+    font-size:calc(20px + 2.5vw);
+}
+#home h1 span {
+    color:#ababab;
+}
+
+#work section {
+    margin-bottom: 45px;
+    border-bottom:.5px solid black;
+}
+
+#work section span a {
+    color:#ababab;
+    font-size:calc(16px + .5vw);
+}
+
+/* email form */
+ #ajax-contact {
+     margin: 0 auto;
+}
+ input, select, textarea {
+     box-sizing: border-box;
+}
+ input::after, select::after, textarea::after, input::before, select::before, textarea::before {
+     box-sizing: border-box;
+}
+ fieldset {
+     margin: 0 0 3rem;
+     padding: 0;
+     border: none;
+}
+ .form-radio, .form-group {
+     position: relative;
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+}
+ .form-inline > .form-group, .form-inline > .btn {
+     display: inline-block;
+     margin-bottom: 0;
+}
+ .form-help {
+     margin-top: 0.125rem;
+     margin-left: 0.125rem;
+     color: #b3b3b3;
+     font-size: 0.8rem;
+}
+ .form-radio .form-help {
+     padding-top: 0.25rem;
+     margin-top: -1rem;
+}
+ .form-group input {
+     height: 1.9rem;
+}
+ .form-group textarea {
+     resize: none;
+     height:350px;
+}
+ .form-group select {
+     width: 100%;
+     font-size: 1rem;
+     height: 1.6rem;
+     padding: 0.125rem 0.125rem 0.0625rem;
+     background: none;
+     border: none;
+     line-height: 1.6;
+     box-shadow: none;
+}
+ .form-group .control-label {
+     position: absolute;
+     top: 0.25rem;
+     pointer-events: none;
+     padding-left: 0.125rem;
+     z-index: 1;
+     color: #b3b3b3;
+     font-size: 1rem;
+     font-weight: normal;
+     transition: all 0.28s ease;
+}
+ .form-group .bar {
+     position: relative;
+     border-bottom: 0.0625rem solid #999;
+     display: block;
+}
+ .form-group .bar::before {
+     content: '';
+     height: 0.125rem;
+     width: 0;
+     left: 50%;
+     bottom: -0.0625rem;
+     position: absolute;
+     background: black;
+     transition: left 0.28s ease, width 0.28s ease;
+     z-index: 2;
+}
+ .form-group input, .form-group textarea {
+     display: block;
+     background: none;
+     padding: 0.125rem 0.125rem 0.0625rem;
+     font-size: 1rem;
+     border-width: 0;
+     border-color: transparent;
+     line-height: 1.9;
+     width: 100%;
+     color: transparent;
+     transition: all 0.28s ease;
+     box-shadow: none;
+}
+ .form-group input[type="file"] {
+     line-height: 1;
+}
+ .form-group input[type="file"] ~ .bar {
+     display: none;
+}
+ .form-group select, .form-group input:focus, .form-group input:valid, .form-group input.form-file, .form-group input.has-value, .form-group textarea:focus, .form-group textarea:valid, .form-group textarea.form-file, .form-group textarea.has-value {
+     color: #333;
+}
+ .form-group select ~ .control-label, .form-group input:focus ~ .control-label, .form-group input:valid ~ .control-label, .form-group input.form-file ~ .control-label, .form-group input.has-value ~ .control-label, .form-group textarea:focus ~ .control-label, .form-group textarea:valid ~ .control-label, .form-group textarea.form-file ~ .control-label, .form-group textarea.has-value ~ .control-label {
+     font-size: 0.8rem;
+     color: #808080;
+     top: -1rem;
+     left: 0;
+}
+ .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
+     outline: none;
+}
+ .form-group select:focus ~ .control-label, .form-group input:focus ~ .control-label, .form-group textarea:focus ~ .control-label {
+     color: black;
+}
+ .form-group select:focus ~ .bar::before, .form-group input:focus ~ .bar::before, .form-group textarea:focus ~ .bar::before {
+     width: 100%;
+     left: 0;
+}
+ #ajax-contact .buttonc {
+     position: relative;
+     background: currentColor;
+     border: 1px solid currentColor;
+     font-size: 1.1rem;
+     color: #212121;
+     padding: 0.75rem 3rem;
+     cursor: pointer;
+     transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+     overflow: hidden;
+     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+ #ajax-contact .buttonc span {
+     color: #fff;
+     position: relative;
+     z-index: 1;
+}
+ #ajax-contact .buttonc::before {
+     content: '';
+     position: absolute;
+     background: #071017;
+     border: 50vh solid #212121;
+     width: 30vh;
+     height: 30vh;
+     border-radius: 50%;
+     display: block;
+     top: 50%;
+     left: 50%;
+     z-index: 0;
+     opacity: 1;
+     transform: translate(-50%, -50%) scale(0);
+}
+ #ajax-contact .buttonc:hover {
+     opacity: .75;
+     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+}
+ .success {
+     padding: 1em;
+     margin-bottom: 0.75rem;
+     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+     color: #468847;
+     background-color: #dff0d8;
+     border: 1px solid #d6e9c6;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;
+}
+ .error {
+     padding: 1em;
+     margin-bottom: 0.75rem;
+     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+     color: #b94a48;
+     background-color: #f2dede;
+     border: 1px solid rgba(185, 74, 72, 0.3);
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     border-radius: 4px;
+}
+/* end email form */
+
+#resume-button .buttonc {
+     position: relative;
+     background: currentColor;
+     border: 1px solid currentColor;
+     font-size: 1.1rem;
+     color: #212121;
+     padding: 0.75rem 3rem;
+     cursor: pointer;
+     transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+     overflow: hidden;
+     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+}
+ #resume-button .buttonc span {
+     color: #fff;
+     position: relative;
+     z-index: 1;
+}
+ #resume-button .buttonc::before {
+     content: '';
+     position: absolute;
+     background: #071017;
+     border: 50vh solid #212121;
+     width: 30vh;
+     height: 30vh;
+     border-radius: 50%;
+     display: block;
+     top: 50%;
+     left: 50%;
+     z-index: 0;
+     opacity: 1;
+     transform: translate(-50%, -50%) scale(0);
+}
+ #resume-button .buttonc:hover {
+     opacity: .75;
+     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+}
+
+/* button styles */
+
+.btn {
+     position: relative;
+     display: block;
+     margin: 30px auto;
+     margin-left:0px;
+     padding: 0;
+     overflow: hidden;
+     border-width: 0;
+     outline: none;
+     border-radius: 2px;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+     background-color: #2ecc71;
+     color: #ecf0f1;
+     transition: background-color .3s;
+}
+ .btn:hover, .btn:focus {
+     background-color: #27ae60;
+     cursor: default;
+}
+ .btn > * {
+     position: relative;
+}
+ .btn span {
+     display: block;
+     padding: 12px 24px;
+}
+ .btn.download {
+     background-color: lightslategray;
+}
+ .btn.download:hover, .btn.download:focus {
+     background-color: #9ca8b4;
+}
+ .btn.download a {
+     text-decoration: none;
+     color:white;
+}
+
+#work section button {
+    position: relative;
+    background: currentColor;
+    border: 1px solid currentColor;
+    font-size: 1.1rem;
+    color: #212121;
+    /*padding: 0.75rem 3rem; moved to padding of <a> */
+    cursor: pointer;
+    transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    margin-bottom: 15px;
+}
+
+#work section button a,
+#work section button a:active {
+    color:white;
+    text-decoration: none;
+    display: block;
+    padding:0.75rem 3rem;
+}
+
+ #work section button:hover, #work section button:focus {
+     background-color: #9ca8b4;
+}
+
+/* end button styles */
+
+/* case study styles */
+
+#case-study img {
+    max-width: 860px;
+    width: 100%;
+    margin:0 auto;
+    display: block;
+}
+
+.case-study-main span {
+    font-weight: 400;
+    font-size: 20px;
+    color:dimgray;
+}
+
+.tall-image {
+    max-width: 300px!important;
+}
+
+main #home h2 a,
+main #home h2 a:visited {
+    color: dimgray;
+    font-weight: 200;
+}
+
+main #home h2 a:hover {
+    font-style: italic;
+}
+/* end case study styles */
+
+
+/* line-awesome font styles */
+
+.secondary-small i {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/*end line awesome */
+
+/* highlight JS edits */
+
+.hljs {
+    max-width: 800px;
+    margin:0 auto;
+}
+
+/* end highlight JS edits */
+
+
+/* media queries */
+
+@media only screen and (max-width:600px){
+    header {
+        display: none;
+    }
+    .header-small {
+        display: block;
+        padding:15px;
+        width:95%;
+        background-color: white;
+        min-height: 20px;
+        z-index: 10;
+    }
+    nav.main-small {
+        float:left;
+        width:100%;
+    }
+    nav.main-small ul {
+        padding-left: 0;
+        margin-top:0;
+        padding-top: 35px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    nav.main-small ul li {
+        list-style: none;
+    }
+    nav.main-small ul li:last-of-type {
+        padding-bottom: 0;
+    }
+    nav.main-small ul li a {
+        text-decoration: none;
+        color:#212121;
+        font-weight: 300;
+        font-size: 20px;
+        display: block;
+        padding:10px;
+    }
+    nav.secondary-small {
+        float:right;
+        position: fixed;
+        right:0;
+    }
+    #nav-toggle {
+        float:left;
+    }
+    nav.secondary-small ul {
+        margin-top: 0;
+    }
+    nav.secondary-small ul li {
+        list-style: none;
+        float:left;
+        margin-right: 10px;
+    }
+    nav.secondary-small ul li a:last-child {
+        padding-left:10px;
+    }
+    #nav-toggle span i {
+        font-size: 2em;
+    }
+    #nav-toggle span i:hover {
+        cursor: pointer;
+        color:#ababab;
+    }
+    #nav-toggle span i:active { 
+        color:#ababab;
+    }
+    nav.secondary-small i {
+        font-size: 2em;
+        color:#212121;
+    }
+    nav.secondary-small i:hover {
+        color:#ababab;
+    }
+    .main-title {
+        margin-top: 30px;
+        margin-bottom: 0px;
+    }
+    main section h1 {
+        margin-top:1px;
+    }
+    #work section h1 {
+        font-size: 15px;
+    }
+    #work section ul {
+        padding-left: 0;
+        list-style: none;
+    }
+    #work section ul li {
+        margin-bottom: 20px;
+    }
+    #work section button {
+        padding:10px;
+        width:49%
+    }
+    #work section button a,
+    #work section button a:active {
+    }
+    #home h1 {
+        margin-top:20vh;
+    }
+    #work section button a,
+    #work section button a:active {
+    padding:0.1rem .2rem;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
